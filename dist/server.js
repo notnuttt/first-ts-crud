@@ -18,7 +18,10 @@ mongoose_1.default
     Logging_1.default.info('Mongo connected successfully.');
     StartServer();
 })
-    .catch((error) => Logging_1.default.error(error));
+    .catch((error) => {
+    Logging_1.default.info('Unable to connect:');
+    Logging_1.default.error(error);
+});
 /** Only Start Server if Mongoose Connects */
 const StartServer = () => {
     /** Log the request */
